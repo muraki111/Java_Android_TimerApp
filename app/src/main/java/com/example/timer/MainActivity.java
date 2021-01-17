@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         long interval = 10;
 
         Button startButton = findViewById(R.id.start_button);
-        Button stopButton = findViewById(R.id.stop_button);
+        Button resetButton = findViewById(R.id.reset_button);
 
         timerText = findViewById(R.id.timer);
         timerText.setText(dataFormat.format(0));
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        stopButton.setOnClickListener(new View.OnClickListener(){
+        resetButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 // 中止
