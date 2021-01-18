@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "597666694900",
+    "project_id": "timerapp-fd608",
+    "storage_bucket": "timerapp-fd608.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597666694900:android:803fcdeb2da8b9b68f40a1",
+        "android_client_info": {
+          "package_name": "com.example.TimerApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597666694900-o71k46mrkgphjv2cmkrea956pmgje8d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxPPvwgDQmZ4Ajqr-A5S-uIJONB_l5WBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597666694900-o71k46mrkgphjv2cmkrea956pmgje8d6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

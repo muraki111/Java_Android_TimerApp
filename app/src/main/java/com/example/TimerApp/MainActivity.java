@@ -1,5 +1,6 @@
-package com.example.testtimerapp;
+package com.example.TimerApp;
 
+import android.media.TimedText;
 import android.os.CountDownTimer;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.Locale;
 
@@ -25,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private double percent;
     private double percent2;
+    private String timeText;
     private static final String TAG = "MyActivity";
-
+    private SoundPlayer soundPlayer;
 
     private CountDownTimer mCountDownTimer;
 
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         percent = 100; //初期状態を100%にします。
+        soundPlayer = new SoundPlayer(this);
 
         progressBar = (ProgressBar)findViewById(R.id.Progress0);
         progressBar.setMax(100);
@@ -109,9 +110,17 @@ public class MainActivity extends AppCompatActivity {
                 updateCountDownText();
                 percent -= 100.0/((a+mTimeLeftInMillis)/1000.0);
                 a += 1000;
-                Log.d(TAG, String.valueOf("現在のパーセンテージ："+(percent)+"　　引いたパーセンテージ："+(percent-percent2)));
+                int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+                int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+                String timeLeftFormatted = String.format(Locale.getDefault(), "");
+                if(1000+mTimeLeftInMillis==a+mTimeLeftInMillis){
+                    timeText = minutes+":"+seconds;
+                }
+                Log.d(TAG, String.valueOf("設定時間："+ timeText +" 　現在時間："+minutes+":"+seconds+"　　現在のパーセンテージ："+(percent)+"　　引いたパーセンテージ："+(percent-percent2)));
                 percent2 = percent;
                 progressBar.setProgress((int)percent);
+                //ScreenShotter.takeScreenshot("main_screen_2", this /* activity */);
+
             }
 
             @Override
@@ -120,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 mButtonStartPause.setText("Start");
                 mButtonStartPause.setVisibility(View.INVISIBLE);
                 mButtonReset.setVisibility(View.VISIBLE);
+                soundPlayer.playalarmSound();
             }
         }.start();
 

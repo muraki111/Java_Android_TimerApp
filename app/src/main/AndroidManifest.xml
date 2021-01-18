@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.testtimerapp">
+    package="com.example.TimerApp">
+    <!-- WRITE_EXTERNAL_STORAGE is not needed on Android 10 (API level 29) or higher. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,13 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TestTimerApp">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.TimerApp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
     </application>
 
 </manifest>
