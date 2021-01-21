@@ -1,8 +1,15 @@
+//参考文献：https://codinginflow.com/tutorials/android/countdowntimer/part-1-countdown-timer
+
 package com.example.TimerApp;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.media.TimedText;
 import android.os.CountDownTimer;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -116,11 +123,18 @@ public class MainActivity extends AppCompatActivity {
                 if(1000+mTimeLeftInMillis==a+mTimeLeftInMillis){
                     timeText = minutes+":"+seconds;
                 }
+                if(minutes == 0 && !(seconds == 0)){
+                    soundPlayer.playlittleSound();
+                    Drawable customDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.circle_progress_1min, null);
+                    progressBar.setProgressDrawable(customDrawable);
+                }else {
+                    Drawable customDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.circle_progress, null);
+                    progressBar.setProgressDrawable(customDrawable);
+                }
+
                 Log.d(TAG, String.valueOf("設定時間："+ timeText +" 　現在時間："+minutes+":"+seconds+"　　現在のパーセンテージ："+(percent)+"　　引いたパーセンテージ："+(percent-percent2)));
                 percent2 = percent;
                 progressBar.setProgress((int)percent);
-                //ScreenShotter.takeScreenshot("main_screen_2", this /* activity */);
-
             }
 
             @Override
@@ -130,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 mButtonStartPause.setVisibility(View.INVISIBLE);
                 mButtonReset.setVisibility(View.VISIBLE);
                 soundPlayer.playalarmSound();
+                Drawable customDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.circle_progress, null);
+                progressBar.setProgressDrawable(customDrawable);
             }
         }.start();
 
