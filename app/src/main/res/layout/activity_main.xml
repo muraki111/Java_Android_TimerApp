@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context="com.codinginflow.countdowntimerexample.MainActivity">
 
     <TextView
@@ -40,33 +41,33 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:progressDrawable="@drawable/circle_progress"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="250dp"
-        android:progress="20" />
+        android:layout_marginEnd="8dp"
+        android:progress="20"
+        android:progressDrawable="@drawable/circle_progress" />
 
     <Button
-        android:text="@string/start"
         android:id="@+id/button_30"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="@string/start" />
 
     <Button
-        android:text="@string/stop"
         android:id="@+id/button_1"
-        android:layout_marginTop="400dp"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="400dp"
+        android:text="@string/stop" />
 
     <Button
-        android:text="@string/reset"
         android:id="@+id/button_5"
-        android:layout_marginTop="500dp"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="500dp"
+        android:text="@string/reset" />
 </RelativeLayout>
